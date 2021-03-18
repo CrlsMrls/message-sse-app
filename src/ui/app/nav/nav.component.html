@@ -1,0 +1,38 @@
+<h1>Message notifications</h1>
+
+<div class="nav__icons">
+  <button
+    mat-button
+    [matMenuTriggerFor]="menu"
+    aria-label="Example icon-button with a menu"
+  >
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="'messages'">
+      <mat-icon>inbox</mat-icon>
+      <span>Messages</span>
+    </button>
+    <button mat-menu-item [routerLink]="'first-view'">
+      <mat-icon>crop_original</mat-icon>
+      <span>First view</span>
+    </button>
+    <button mat-menu-item [routerLink]="'second-view'">
+      <mat-icon>crop_original</mat-icon>
+      <span>Second view</span>
+    </button>
+  </mat-menu>
+
+  <button mat-button [routerLink]="'messages'">
+    <!-- show icon with badge if there are unread messages -->
+    <mat-icon
+      *ngIf="(newMessages$ | async) != 0"
+      matBadge="{{ newMessages$ | async }}"
+      matBadgeColor="warn"
+      >email
+    </mat-icon>
+
+    <!-- show icon without badge if no new messages -->
+    <mat-icon *ngIf="(newMessages$ | async) == 0">email</mat-icon>
+  </button>
+</div>

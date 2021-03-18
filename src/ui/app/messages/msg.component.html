@@ -1,0 +1,57 @@
+<!-- new message -->
+<section class="card mat-elevation-z3">
+  <h2 class="card__header">New message</h2>
+
+  <div class="card__content">
+    <mat-form-field class="example-full-width">
+      <mat-label>Message text</mat-label>
+      <input matInput [(ngModel)]="messageText" (keyup.enter)="sendMessage()" />
+    </mat-form-field>
+
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="sendMessage()"
+      [disabled]="messageText == ''"
+    >
+      <mat-icon>send</mat-icon>
+      Send Message
+    </button>
+  </div>
+</section>
+
+<!-- list of messages -->
+<section class="card mat-elevation-z3">
+  <h2 class="card__header">Messages</h2>
+  <ul>
+    <li
+      *ngFor="let message of messages$ | async"
+      class="message"
+      [class.message__new]="message.status === 'NEW'"
+    >
+      {{ message.text }}
+
+      <div class="actions">
+        <button
+          mat-icon-button
+          *ngIf="message.status === 'NEW'"
+          (click)="markRead(message)"
+        >
+          <mat-icon> mail </mat-icon>
+        </button>
+
+        <button
+          mat-icon-button
+          *ngIf="message.status !== 'NEW'"
+          (click)="markUnRead(message)"
+        >
+          <mat-icon> drafts </mat-icon>
+        </button>
+
+        <button mat-icon-button (click)="delete(message)">
+          <mat-icon> delete </mat-icon>
+        </button>
+      </div>
+    </li>
+  </ul>
+</section>

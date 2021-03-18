@@ -1,0 +1,49 @@
+.card {
+  &__content {
+    margin: 20px 40px;
+  }
+
+  &__actions {
+    margin: 20px 40px;
+    background-color: red;
+  }
+}
+
+.card {
+  padding: 26px;
+  border-radius: 4px;
+  margin: 50px 0;
+
+  display: flex;
+  flex-flow: column;
+
+  &__header {
+    padding-bottom: 30px;
+    font-weight: 700;
+  }
+
+  &__content > mat-form-field {
+    width: calc(90% - 150px);
+    margin-right: 50px;
+  }
+}
+
+.message {
+  list-style-type: none;
+  margin: 0px 30px;
+  padding: 15px;
+  border-bottom: darkgray solid 1px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  &__new {
+    background-color: #f4f3ff;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}

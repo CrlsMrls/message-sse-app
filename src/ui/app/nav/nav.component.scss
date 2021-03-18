@@ -1,0 +1,15 @@
+:host {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: #f5f5f5;
+  padding: 0 15px;
+
+  &__icons {
+    display: flex;
+    align-items: center;
+  }
+}
