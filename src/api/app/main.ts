@@ -7,6 +7,6 @@ async function bootstrap() {
 
   await app.listen(process.env.PORT || 8081);
 
-  console.log(`REST API running in ${process.env.PORT || 8081}`);
+  console.log(`Application is running on URL: ${await app.getUrl()}`);
 }
 bootstrap();
