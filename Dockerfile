@@ -49,7 +49,7 @@ COPY . .
 COPY --from=development /usr/src/app/dist .
 
 # change to non-root user
-USER node
+# USER node
 
 # Run the web service on container startup.
 CMD ["node", "main.js"]
