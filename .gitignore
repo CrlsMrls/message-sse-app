@@ -48,3 +48,5 @@ Thumbs.db
 # files used by GCP
 .gcloudignore
 gcp-app.yaml
+
+.env
